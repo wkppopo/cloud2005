@@ -1,0 +1,27 @@
+#凡是微服务一定要写端口号和微服务名称
+server:
+  port: 80
+spring:
+  application:
+    name: cloud-order-consumer     #这个名字很重要 微服务之间的调用就用它
+
+  devtools: #热部署以下这两个配置 必须写上 否则 页面不能正常显示
+    restart:
+      poll-interval: 2s
+      quiet-period: 1s
+
+
+eureka:
+  instance:
+    prefer-ip-address: true   #访问路径(status)可以显示ip地址
+    instance-id: consumer80   #修改消费者服务的名称
+
+  client:
+    register-with-eureka: true    # 1.0表示是否将自己注册到eureka服务器中
+    fetch-registry: true   # 2.0是否从eureka server 中抓取已有的信息 默认true，单节点无所谓2.0集群必须设置为true才能配合ribbon使用负载均衡
+    service-url:
+      #defaultZone: http://localhost:7001/eureka    #单机版注册服务地址
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka    #集群版注册地址
+
+
+
