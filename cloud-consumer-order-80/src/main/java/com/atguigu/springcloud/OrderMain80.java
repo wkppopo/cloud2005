@@ -8,6 +8,6 @@ public class OrderMain80 {
     public static void main(String[] args) {
         SpringApplication.run(OrderMain80.class,args);
         System.out.println("修改一点点代码");
-        System.out.println("修改一点点代码");
+        System.out.println("hot-fix text!");
     }
 }
